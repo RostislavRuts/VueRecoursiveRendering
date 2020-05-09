@@ -1,2 +1,0 @@
-# VueRecoursiveRendering
-Created with CodeSandbox
