@@ -92,5 +92,12 @@ export default {
   margin: 0 0 15px 15px;
 }
 .control {
+  margin: 10px;
+}
+.control-button {
+  display: block;
+  width: 50px;
+  background: lime;
+  font-weight: bolder;
 }
 </style>
