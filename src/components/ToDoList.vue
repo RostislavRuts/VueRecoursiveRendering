@@ -36,9 +36,20 @@ export default {
     deleteTask(index) {
       this.items.splice(index, 1);
     },
-    moveItemUp(el) {
-      console.log(el)
+    moveItemUp(index) {
+      if (index > 0) {
+        function swap(arr, a, b) {
+          arr[a] = arr.splice(b, 1, arr[a])[0];
+        }
+        swap(this.items, index, index - 1);
+      }
+      else this.items.push(this.items.shift());
+
+      
+      console.log(index);
     }
   }
 };
 </script>
+
+
