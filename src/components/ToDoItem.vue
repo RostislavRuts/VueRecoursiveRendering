@@ -4,7 +4,7 @@
       <h3>{{ item.title }}</h3>
       <div class="control" v-if="!parentItem && allitems.length > 1">
         <button class="control-button" @click="itemUp">Up</button>
-        <button class="control-button">Down</button>
+        <button class="control-button" @click="itemDown">Down</button>
       </div>
       <button class="remove" v-if="parentItem" @click="deleteSubTask">Delete</button>
       <button class="remove" v-if="!parentItem" @click="deleteTask">&times;</button>
@@ -67,6 +67,10 @@ export default {
     itemUp() {
       //console.log(this.index)
       this.$emit("item-up", this.index);
+    },
+    itemDown() {
+      this.$emit("item-down", this.index);
+      //console.log(this.index)
     }
   }
 };

@@ -8,6 +8,7 @@
       :key="item.id"
       @deleteTask="deleteTask"
       @item-up="moveItemUp"
+      @item-down="moveItemDown"
     />
 
     <AddTask @add-main-list="addTask" :task="task"/>
@@ -42,11 +43,20 @@ export default {
           arr[a] = arr.splice(b, 1, arr[a])[0];
         }
         swap(this.items, index, index - 1);
+      } else {
+        this.items.push(this.items.shift())
       }
-      else this.items.push(this.items.shift());
-
-      
-      console.log(index);
+    },
+    moveItemDown(index) {
+      if (index !== this.items.length - 1) {
+        function swap(arr, a, b) {
+          arr[a] = arr.splice(b, 1, arr[a])[0];
+        }
+        swap(this.items, index, index + 1);
+      } else {
+        this.items.unshift(this.items.pop());
+      }
+      console.log(this.items.length);
     }
   }
 };
